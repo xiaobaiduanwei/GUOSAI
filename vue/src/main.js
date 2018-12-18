@@ -64,3 +64,13 @@ axios.interceptors.response.use(response => {
 export default axios
 window.axios = require('axios');
 
+
+Vue.config.productionTip = false
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  router,
+  components: { App },
+  template: '<App/>'
+})

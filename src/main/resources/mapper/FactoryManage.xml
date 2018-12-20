@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.FactoryManageDao">
+
+
+    <select id="findFactoryDaili" parameterType="int" resultType="FDG">
+           select * from factorydaili where  changshangid=#{id}
+   </select>
+
+    <select id="findGoods" parameterType="int" resultType="Goods">
+           select * from goods where  id=#{id}
+   </select>
+
+    <select id="findDaili" parameterType="int" resultType="DUser">
+           select * from daili where  id=#{id}
+   </select>
+
+
+    <delete id="deleteFactorydaili" parameterType="FDG">
+        DELETE FROM factorydaili WHERE dailiid = #{dailiid} and shangpingId ={shangpingId}and changshangid=#{changshangid}
+
+    </delete>
+
+
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.DailiManageDao">
+
+
+    <select id="findFactoryDaili" parameterType="int" resultType="FDG">
+           select * from factorydaili where  dailiid=#{id}
+   </select>
+
+    <select id="findGoods" parameterType="int" resultType="Goods">
+           select * from goods where  id=#{id}
+   </select>
+
+    <delete id="deleteFactorydaili" parameterType="FDG">
+        DELETE FROM factorydaili WHERE dailiid = #{dailiid} and shangpingId ={shangpingId}and changshangid=#{changshangid}
+
+    </delete>
+
+    <select id="findFactory" parameterType="int" resultType="FUser">
+           select f.* from factory f ,factorygoods fg where  fg.changshangid  =f.id and fg.shangpingId=#{id}
+   </select>
+
+    <select id="findFactoryDailiId" parameterType="FUser" resultType="int">
+           select fd.id from  factorydaili fd  where  fd.changshangid  =#{changshangid } and fd.shangpingId=#{shangpingId} and  fd.dailiid=#{dailiid}
+   </select>
+
+    <insert id="insertGoodsSell" parameterType="GoodSell">
+        INSERT INTO goodssell (factorydailliId,sellPrice,miaoshuD) values(#{factorydailliId},#{sellPrice},#{miaoshuD})
+    </insert>
+
+    <select id="findSellGoods" parameterType="int" resultType="AllInfo">
+           select gs.sellPrice ,gs.miaoshuD,g.shangpingName ,g.shangpingPhotoUrl,fd.changshangid  ,fd.dailiid,fd.shangpingId from   goodssell gs, factorydaili fd ,goods g  where gs.factorydailliId =fd.id and fd.shangpingId=g.id and fd.dailiid=#{dailiid}
+   </select>
+
+</mapper>

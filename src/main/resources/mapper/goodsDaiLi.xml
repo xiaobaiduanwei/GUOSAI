@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.GoodsDaiLiDao">
+
+    <select id="findDaiLiByName"  parameterType="String"  resultType="DUser">
+    select * from daili where userName = #{username}
+   </select>
+
+    <insert id="insertFactoryDailiApply" parameterType="FDG">
+        INSERT INTO factorydailiapply (changshangid ,dailiid ,shangpingId) values(#{changshangid},#{dailiid},#{shangpingId})
+    </insert>
+
+    <insert id="insertFactoryDaili" parameterType="FDG">
+        INSERT INTO factorydaili (changshangid ,dailiid ,shangpingId) values(#{changshangid},#{dailiid},#{shangpingId})
+    </insert>
+
+    <delete id="deleteFactoryDaili" parameterType="FDG">
+        DELETE FROM factorydaili WHERE changshangid=#{changshangid} AND dailiid = #{dailiid} AND shangpingId =#{shangpingId}
+
+    </delete>
+
+    <delete id="deleteFactoryDailiApply" parameterType="FDG">
+        DELETE FROM factorydailiapply WHERE changshangid=#{changshangid} AND dailiid = #{dailiid} AND shangpingId =#{shangpingId}
+
+    </delete>
+
+    <select id="findDaiLiById"  parameterType="int"  resultType="DUser">
+    select * from daili where id = #{id}
+   </select>
+
+    <select id="findFactoryById"  parameterType="int"  resultType="FUser">
+    select * from factory where id = #{id}
+   </select>
+
+    <select id="findGoodsById"  parameterType="int"  resultType="Goods">
+    select * from goods where id = #{id}
+   </select>
+
+    <insert id="insertNote" parameterType="FDG">
+        INSERT INTO note (changshangid,dailiid,shangpingId) values(#{changshangid},#{dailiid},#{shangpingId})
+    </insert>
+
+    <select id="findNoteByDailiId"  parameterType="int"  resultType="FDG">
+    select * from note where dailiid = #{id}
+   </select>
+
+    <select id="findDailiApplyById"  parameterType="int"  resultType="FDG">
+    select * from factorydailiapply where changshangid = #{id}
+   </select>
+
+</mapper>

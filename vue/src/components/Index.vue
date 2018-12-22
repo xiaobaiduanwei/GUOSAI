@@ -4,29 +4,32 @@
       <el-header>
         <el-row>
           <el-menu
-            :default-active="activeIndex1"
+            router
+            :default-active="$route.path"
             class="el-menu-demo"
             mode="horizontal"
             @select="handleSelect"
             background-color="#545c64"
             text-color="#fff"
-            active-text-color="#ffd04b">
-            <el-menu-item index="SignIn"><i class="el-icon-info"></i>Sign&nbsp;In</el-menu-item>
+            active-text-color="#ffd04b"
+            >
+            <el-menu-item index="SignIn" @click="jump('SignIn')"><i class="el-icon-info"></i>Sign&nbsp;In</el-menu-item>
             <el-menu-item index="SignUp">Sign&nbsp;Up</el-menu-item>
-            <el-submenu index="SellerEntrance">
-              <template slot="title">卖家入口</template>
-              <el-menu-item index="2-1">选项1</el-menu-item>
-              <el-menu-item index="2-2">选项2</el-menu-item>
-              <el-menu-item index="2-3">选项3</el-menu-item>
-              <el-submenu index="2-4">
-                <template slot="title">选项4</template>
-                <el-menu-item index="2-4-1">选项1</el-menu-item>
-                <el-menu-item index="2-4-2">选项2</el-menu-item>
-                <el-menu-item index="2-4-3">选项3</el-menu-item>
-              </el-submenu>
-            </el-submenu>
-            <el-menu-item index="FactoryEntrance" disabled>产家入口</el-menu-item>
-            <el-menu-item index="4" style="margin-left: 50%">客服</el-menu-item>
+            <!--<el-submenu index="SellerEntrance">-->
+              <!--<template slot="title">卖家入口</template>-->
+              <!--<el-menu-item index="2-1">选项1</el-menu-item>-->
+              <!--<el-menu-item index="2-2">选项2</el-menu-item>-->
+              <!--<el-menu-item index="2-3">选项3</el-menu-item>-->
+              <!--<el-submenu index="2-4">-->
+                <!--<template slot="title">选项4</template>-->
+                <!--<el-menu-item index="2-4-1">选项1</el-menu-item>-->
+                <!--<el-menu-item index="2-4-2">选项2</el-menu-item>-->
+                <!--<el-menu-item index="2-4-3">选项3</el-menu-item>-->
+              <!--</el-submenu>-->
+            <!--</el-submenu>-->
+            <el-menu-item index="SellerEntrance">卖家入口</el-menu-item>
+            <el-menu-item index="FactoryEntrance">产家入口</el-menu-item>
+            <el-menu-item index="CustomerService" style="margin-left: 50%">客服</el-menu-item>
           </el-menu>
           </el-menu>
         </el-row>
@@ -71,7 +74,7 @@
                   <i class="el-icon-menu"></i>
                   <span slot="title">导航二</span>
                 </el-menu-item>
-                <el-menu-item index="3" disabled>
+                <el-menu-item index="3">
                   <i class="el-icon-document"></i>
                   <span slot="title">导航三</span>
                 </el-menu-item>
@@ -91,7 +94,7 @@
           </el-main>
         </el-container>
         <el-row>
-          <el-col :span="8" v-for="(o, index) in 4" :key="o" :offset="index > 0 ? 2 : 0">
+          <el-col :span="4" v-for="(o, index) in 12" :key="o" :offset="index > 0 ? 0 : 0">
             <el-card :body-style="{ padding: '0px' }" shadow="hover">
               <img src="..\assets\logo.png" class="image">
               <div style="padding: 14px;">
@@ -105,7 +108,7 @@
           </el-col>
         </el-row>
       </el-main>
-      <el-footer></el-footer>
+      <el-footer style="">END</el-footer>
     </el-container>
   </div>
 </template>
@@ -127,11 +130,13 @@ export default {
   data () {
     return {
       // msg: 'Welcome to Your Vue.js App'
-      activeIndex1: '1',
       input10: '',
       currentDate: new Date()
     };
   },
+  // updated() {//路径及按键操作时调用
+  //   this.updateForcus();
+  // },
   methods:{
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
@@ -148,6 +153,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
   .el-header {
     background-color: #B3C0D1;
     color: gainsboro;
@@ -158,7 +164,9 @@ export default {
   }
   .el-footer{
     background-color: #B3C0D1;
-    color: gainsboro;
+    font-color: black;
+    text-align: center;
+    line-height: 60px;
   }
   .el-carousel__item h3 {
     color: #475669;

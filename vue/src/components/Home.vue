@@ -10,7 +10,27 @@
           <el-input v-model="input" placeholder="请输入内容" style="width:30%; margin-top: 20px"></el-input><el-button type="primary" icon="el-icon-search">搜索</el-button>
         </div>
         <div id="nnn" style=" width: 30%; margin-top: 0px; float: left">
-          <el-button type="primary" icon="el-icon-star-off" style=" margin-top: 20px;margin-left: 20px"></el-button>
+          <el-button  slot="title" type="primary" icon=""  ></el-button>
+
+          <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+            <el-submenu index="1">
+              <template slot="title">
+                <i class="el-icon-star-off"></i>
+                <span slot="title">导航一</span>
+              </template>
+              <el-menu-item-group>
+                <span slot="title">分组一</span>
+                <el-menu-item index="1-1">选项1</el-menu-item>
+                <el-menu-item index="1-2">选项2</el-menu-item>
+                <el-menu-item index="1-3">选项3</el-menu-item>
+                <el-submenu index="1-4">
+                  <span slot="title">选项4</span>
+                  <el-menu-item index="1-4-1">选项1</el-menu-item>
+                </el-submenu>
+              </el-menu-item-group>
+            </el-submenu>
+          </el-menu>
+
         </div>
       </el-header>
       <el-main>
@@ -35,7 +55,10 @@
   </el-container>
 </template>
 <style>
-
+  .el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 400px;
+  }
   .el-header, .el-footer {
     background-color: #409EFF;
     color: #909399;
@@ -105,8 +128,22 @@ data() {
 
 return {
   currentDate: new Date(),
-  input: ''
+  input: '',
+  activeIndex: '1',
+  activeIndex2: '1',
+  isCollapse: true
 };
+},
+methods: {
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath);
+    },
+  handleOpen(key, keyPath) {
+    console.log(key, keyPath);
+  },
+  handleClose(key, keyPath) {
+    console.log(key, keyPath);
+  }
 }
 }
 </script>

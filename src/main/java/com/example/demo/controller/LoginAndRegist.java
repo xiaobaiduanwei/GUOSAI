@@ -33,19 +33,18 @@ public class LoginAndRegist {
         return new Massage(2400,token+"", jwtTokenUtil.parse(token));
     }
 
-    @GetMapping("/registf/{username}")
+    @RequestMapping(value = "/regisef",method = RequestMethod.POST)
     @ResponseBody
-    public Massage registf(@PathVariable("username") FUser u) throws  RuntimeException{
+    public Massage registf(@RequestBody FUser u) throws  RuntimeException{
 
 
 
         return loginRegist.RegistF(u);
 
     }
-
-    @GetMapping("/registd/{username}")
+    @RequestMapping(value = "/regised",method = RequestMethod.POST)
     @ResponseBody
-    public Massage registd (@PathVariable("username") DUser u) throws  RuntimeException{
+    public Massage registd (@RequestBody DUser u) throws  RuntimeException{
 
 
         return loginRegist.RegistD(u);

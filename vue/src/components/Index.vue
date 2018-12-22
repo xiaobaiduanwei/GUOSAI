@@ -151,6 +151,7 @@ export default {
   .el-header {
     background-color: #B3C0D1;
     color: gainsboro;
+    padding:0;
   }
   .el-main{
 

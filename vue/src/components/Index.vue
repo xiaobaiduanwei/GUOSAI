@@ -26,7 +26,7 @@
               </el-submenu>
             </el-submenu>
             <el-menu-item index="FactoryEntrance" disabled>产家入口</el-menu-item>
-            <el-menu-item index="4" style="margin-left: 55%">客服</el-menu-item>
+            <el-menu-item index="4" style="margin-left: 50%">客服</el-menu-item>
           </el-menu>
           </el-menu>
         </el-row>
@@ -151,6 +151,7 @@ export default {
   .el-header {
     background-color: #B3C0D1;
     color: gainsboro;
+    padding:0;
   }
   .el-main{
 

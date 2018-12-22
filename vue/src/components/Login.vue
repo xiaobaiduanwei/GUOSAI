@@ -146,18 +146,7 @@
           }).then((response) => {
             console.log(response);
 
-            if( response.data.states === 200){
-              this.$notify.error({
-                title: '错误',
-                message: '密码错误',
-                type: 'warning',
-                duration:0
-              });
-
-
-            }
-            else{
-
+            if( response.data.states === 2400){
               this.$notify({
                 title: '成功',
                 message: '登录成功',
@@ -166,6 +155,16 @@
               });
               window.sessionStorage.setItem("user", JSON.stringify(response.data.user));
               this.$router.replace('/Home');
+
+
+            }
+            else{
+              this.$notify({
+                title: '失败',
+                message: '密码错误',
+                type: 'warning',
+                duration:2000
+              });
             }
           })
         }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.ApplyDao">
+
+
+    <insert id="insertFactory" parameterType="FUser">
+        INSERT INTO factory (userName,password,role,phone,sex,address) values(#{userName},#{password},#{role},#{phone},#{sex},#{address})
+    </insert>
+
+    <select id="findChangShangAll"  resultType="FUser">
+    select * from changshang
+   </select>
+
+    <delete id="deleteChangShangByName" parameterType="String">
+        DELETE FROM changshang WHERE userName= #{username}
+
+    </delete>
+
+    <select id="findByFUserName" parameterType="String" resultType="FUser">
+       select  u.userName,u.password,u.role,u.phone,u.sex ,u.address from changshang u where username= #{username}
+    </select>
+
+    <select id="findFactoryUserName" parameterType="String" resultType="FUser">
+       select  *  from factory where username= #{username}
+    </select>
+
+    <select id="findFactoryAll"  resultType="FUser">
+    select * from factory
+   </select>
+</mapper>

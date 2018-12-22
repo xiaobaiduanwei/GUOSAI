@@ -91,11 +91,7 @@
           </el-main>
         </el-container>
         <el-row>
-<<<<<<< HEAD
-          <el-col :span="8" v-for="(o, index) in 4" :key="o" :offset="index > 0 ? 2 : 0">
-=======
           <el-col :span="8" v-for="(o, index) in 2" :key="o" :offset="index > 0 ? 2 : 0">
->>>>>>> 前端vue页面代码
             <el-card :body-style="{ padding: '0px' }" shadow="hover">
               <img src="..\assets\logo.png" class="image">
               <div style="padding: 14px;">
@@ -155,10 +151,6 @@ export default {
   .el-header {
     background-color: #B3C0D1;
     color: gainsboro;
-<<<<<<< HEAD
-    padding:0;
-=======
->>>>>>> 前端vue页面代码
   }
   .el-main{
 

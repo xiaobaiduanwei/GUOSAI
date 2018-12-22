@@ -16,7 +16,8 @@ export default new Router({
       path: '/',
       name: 'Index',
       component: Index,
-      children:[
+    },
+      // children:[
         {
           path: '/SignIn',
           name:'SignIn',
@@ -43,6 +44,6 @@ export default new Router({
           component: SellerEntrance,
         },
       ]
-    },
-  ]
-})
+  }
+
+)

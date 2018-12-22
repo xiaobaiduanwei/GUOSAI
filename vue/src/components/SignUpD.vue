@@ -33,7 +33,7 @@
 <script>
 
   export default {
-    name: "signup",
+    name: "sign-up-d",
 
     data() {
       return {
@@ -62,7 +62,7 @@
           axios.post('/user/registf',{
             userName : this.RegisterInputName,
             password : this.RegisterInputPassword,
-            role :"factory",
+            role :"daili",
             phone:this.RegisterInputPhone,
             sex:this.sex,
             address:this.RegisterInputAddress
@@ -77,7 +77,6 @@
                 duration:2000
               });
               this.$router.replace('/SignIn');
-
             } else if(response.data.states==300){
               this.$notify.error({
                 title: '错误',
